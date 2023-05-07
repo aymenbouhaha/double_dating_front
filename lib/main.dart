@@ -1,4 +1,4 @@
-import 'package:double_dating_front/screens/controller/controller.dart';
+import 'package:double_dating_front/screens/chat_room_screen/chat_room_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/conversations_screen/conversations_screen.dart';
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ListConversation(),
+      home: ChatRoomScreen(),
     );
   }
 }
