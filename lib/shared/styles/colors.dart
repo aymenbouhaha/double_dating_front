@@ -9,6 +9,8 @@ class AppColors {
   static Color roseClair = HexColor("#C53E8D");
   static Color mauveClair = HexColor("#8354FF");
   static Color mauveFonce = HexColor("#8A52F3");
+  static Color green = HexColor("#11C122");
+  static Color grey =HexColor("#CBC6F6");
   static Color messageBackgroundColor = HexColor("#612DA6");
   static Gradient backGroundGradient = LinearGradient(
       colors: [HexColor("#140034"), HexColor("#01010D")],
