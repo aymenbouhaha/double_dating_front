@@ -23,22 +23,21 @@ class ChatBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Container(
-              height: height*0.1,
               color: AppColors.appBarColor,
               padding: const EdgeInsets.symmetric(
                 vertical: 8,
-                horizontal: 16,
+                horizontal: 6,
               ),
               child: Row(
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.only(right: 8),
                     child: InkWell(
                       onTap: () {},
                       child: SvgPicture.asset(
                         "assets/ icons/Image.svg",
-                        height: 35,
-                        width: 35,
+                        height: 40,
+                        width: 40,
                       ),
                     ),
                   ),
@@ -75,7 +74,7 @@ class ChatBar extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 14),
+                    padding: const EdgeInsets.only(left: 8),
                     child: InkWell(
                       child: Icon(
                         Icons.send,

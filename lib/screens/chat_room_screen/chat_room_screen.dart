@@ -68,27 +68,36 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
               children: [
                 Padding(
                   padding: EdgeInsets.only(bottom: height*0.11),
-                  child: Flexible(
-                    child: ListView.builder(
-                      itemBuilder: (context,index){
+                  child: ListView.builder(
+                    itemBuilder: (context,index){
+                      bool isSender= index %2 ==0? true : false;
+                      if(!isSender){
                         return Padding(
-                          padding: const EdgeInsets.only(left: 14),
+                          padding: const EdgeInsets.only(left: 14, top: 5, bottom: 5),
                           child: Stack(
                             children: [
                               Align(
                                 child: ChatBubble(
                                     text: "What about blahblah blah blah because ...........  blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blahv blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blahvvvvv blahblah blah blah blahblah blah blah blahblah blah blahv",
-                                    color: AppColors.bubbleColor, isSender: false
+                                    color: AppColors.appBarColor, isSender: false
                                 ),
                                 alignment: Alignment.bottomRight,
                               ),
                               Image.asset("assets/Group 68.png" , height: 40,width: 40,),
-                          ],
+                            ],
                           ),
                         );
-                      },
-                      itemCount: 1,
-                    ),
+                      }else{
+                        return Padding(
+                          padding: const EdgeInsets.only(top: 5, bottom: 5),
+                          child: ChatBubble(
+                              text: "What about blahblah blah blah because ...........  blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blahv blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah blahvvvvv blahblah blah blah blahblah blah blah blahblah blah blahv",
+                              color: AppColors.appBarColor, isSender: true
+                          ),
+                        );
+                      }
+                    },
+                    itemCount: 4,
                   ),
                 ),
 
