@@ -9,6 +9,7 @@ class AppColors {
   static Color roseClair = HexColor("#C53E8D");
   static Color mauveClair = HexColor("#8354FF");
   static Color mauveFonce = HexColor("#8A52F3");
+  static Color mauve      = HexColor("#1B1142") ;
   static Color green = HexColor("#11C122");
   static Color grey =HexColor("#CBC6F6");
   static Color red =HexColor("#EF3349");
@@ -33,6 +34,5 @@ class AppColors {
       gradient: LinearGradient(
           colors: [AppColors.roseClair, AppColors.mauveFonce],
           begin: Alignment.centerLeft,
-          end: Alignment.centerRight),
-  );
+          end: Alignment.centerRight));
 }

@@ -1,6 +1,5 @@
 import 'dart:convert';
-
-import 'package:double_dating_front/models/post.dart';
+import 'post.dart';
 
 import 'couple.dart';
 
