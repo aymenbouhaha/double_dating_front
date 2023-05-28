@@ -14,6 +14,7 @@ class AppColors {
   static Color grey =HexColor("#CBC6F6");
   static Color red =HexColor("#EF3349");
   static Color bubbleColor = HexColor("#612DA6");
+  static Color mauve      = HexColor("#1B1142") ;
   static Color messageBackgroundColor = HexColor("#612DA6");
   static Gradient backGroundGradient = LinearGradient(
       colors: [HexColor("#140034"), HexColor("#01010D")],
