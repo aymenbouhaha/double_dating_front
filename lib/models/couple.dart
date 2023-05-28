@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:double_dating_front/models/person.dart';
+import 'person.dart';
 
 import 'interest.dart';
 
