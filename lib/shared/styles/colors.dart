@@ -11,6 +11,8 @@ class AppColors {
   static Color mauveFonce = HexColor("#8A52F3");
   static Color green = HexColor("#11C122");
   static Color grey =HexColor("#CBC6F6");
+  static Color red =HexColor("#EF3349");
+  static Color bubbleColor = HexColor("#612DA6");
   static Color messageBackgroundColor = HexColor("#612DA6");
   static Gradient backGroundGradient = LinearGradient(
       colors: [HexColor("#140034"), HexColor("#01010D")],
@@ -20,9 +22,17 @@ class AppColors {
       colors: [AppColors.roseBebe, AppColors.mauveClair],
       begin: Alignment.centerLeft,
       end: Alignment.centerRight);
+
+  static Gradient borderGradientColor = LinearGradient(
+      colors: [AppColors.roseClair, AppColors.mauveFonce],
+      begin: Alignment.centerLeft,
+      end: Alignment.centerRight);
+
   static BoxBorder borderGradient = GradientBoxBorder(
+
       gradient: LinearGradient(
           colors: [AppColors.roseClair, AppColors.mauveFonce],
           begin: Alignment.centerLeft,
-          end: Alignment.centerRight));
+          end: Alignment.centerRight),
+  );
 }
