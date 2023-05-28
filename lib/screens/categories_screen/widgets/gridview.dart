@@ -1,22 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:double_dating_front/shared/styles/colors.dart';
 import '../../sign_up_screen/widgets/poppinstyle.dart';
 
 class GridViewCustom extends StatelessWidget {
   final Color color ;
-  final Color colorBorder ;
   final String text ;
-  const GridViewCustom({required this.color,required this.colorBorder,required this.text}) ;
+  bool selected;
+  GridViewCustom({required this.color,required this.text,required this.selected }) ;
   @override
   Widget build(BuildContext context) {
     return
       Container(
         decoration: BoxDecoration(
-          border: Border.all(color: colorBorder),
+          border: selected? Border.all(color: Colors.black): AppColors.borderGradient,
             borderRadius: BorderRadius.circular(20),
             color: color,
-
             boxShadow: [
               BoxShadow(
                 color: Colors.white,
