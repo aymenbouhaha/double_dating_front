@@ -57,7 +57,7 @@ class ChatBubble extends StatelessWidget {
                 child: Stack(
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                      padding: EdgeInsets.symmetric(vertical: 18, horizontal: 18),
                       child: Text(
                         text,
                         style: AppThemes.textStyle.copyWith(fontSize: 12, fontWeight: FontWeight.w600),

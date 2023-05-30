@@ -24,9 +24,9 @@ class Conversation {
 
   factory Conversation.fromJson(Map<String, dynamic> json) => Conversation(
     id: json["id"],
-    author: coupleFromJson(json["author"]),
-    recipient: coupleFromJson(json["recipient"]),
-    lastMessage: messageFromJson(json["lastMessage"])
+    author: json["author"]!=null ? coupleFromJson(jsonEncode(json["author"])) : null,
+    recipient: json["recipient"]!=null? coupleFromJson(jsonEncode(json["recipient"])) : null,
+    lastMessage: json["lastMessage"] !=null ? messageFromJson(jsonEncode(json["lastMessage"])) : null
   );
 
 

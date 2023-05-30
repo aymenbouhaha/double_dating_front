@@ -1,1 +1,2 @@
-String baseUrl="http://10.0.2.2:3000/";
+String baseUrl="https://7614-197-31-143-186.ngrok-free.app";
+String token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwiZW1haWwiOiJheW1lbmJvdWhhaGE2QGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYXltZW5fZW1tYTYiLCJmaXJzdFBhcnRuZXJJZCI6MTcsInNlY29uZFBhcnRuZXJJZCI6MTgsImlhdCI6MTY4NTQ3ODU5OCwiZXhwIjoxNjg1NDkyOTk4fQ.n_Y82krw0m5t5FuKIfggDrZHehmW6af42aBDdyZcunc";

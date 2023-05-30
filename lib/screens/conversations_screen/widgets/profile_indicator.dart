@@ -1,18 +1,29 @@
 
 
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 
 import '../../../shared/styles/colors.dart';
 
 class ProfileIndicator extends StatelessWidget {
-  ProfileIndicator({Key? key, required this.containerHeigth ,this.onTap, required this.containerWidth}) : super(key: key);
+  ProfileIndicator({Key? key, required this.containerHeigth , this.imageData ,this.onTap, required this.containerWidth}) : super(key: key);
 
   double containerHeigth;
   double containerWidth;
+  Uint8List? imageData;
   void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
+    ImageProvider foreground;
+
+    if(imageData !=null){
+      foreground=MemoryImage(imageData!);
+    }else{
+      foreground=AssetImage("assets/Group 68.png");
+    }
+
     return InkWell(
       onTap: onTap,
       child: Container(
@@ -22,7 +33,10 @@ class ProfileIndicator extends StatelessWidget {
           children: [
             Align(
               alignment: Alignment.center,
-              child: Image.asset("assets/Group 68.png"),
+              child: CircleAvatar(
+                radius: 35,
+                foregroundImage: foreground,
+              ),
             ),
             Positioned(
               bottom: 15,

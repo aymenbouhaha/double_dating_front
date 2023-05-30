@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:double_dating_front/models/Couple.dart';
+
 import 'media.dart';
 
 List<Post> postListFromJson(String str) => List<Post>.from(json.decode(str).map((x) => Post.fromJson(x)));
@@ -12,20 +14,22 @@ class Post {
   String? caption;
   String? creationDate;
   List<Media>? medias;
-
+  Couple? user;
 
   Post({
+    this.user,
      this.id,
      this.caption,
      this.creationDate,
-    this.medias
+    this.medias,
   });
 
   factory Post.fromJson(Map<String, dynamic> json) => Post(
     id: json["id"],
     caption: json["caption"],
     creationDate: json["creationDate"],
-      medias: mediaListFromJson(json["medias"])
+      medias: json["medias"] !=null? mediaListFromJson(jsonEncode(json["medias"])) : null,
+    user: json["couple"]!=null  ? coupleFromJson(jsonEncode(json["couple"])) : null
   );
 
 

@@ -1,6 +1,5 @@
 import 'package:double_dating_front/screens/sign_up_screen/widgets/custom_text_field.dart';
 import 'package:double_dating_front/screens/sign_up_screen/widgets/poppinstyle.dart';
-import 'package:double_dating_front/screens/sign_up_screen/widgets/test.dart';
 import 'package:double_dating_front/shared/styles/colors.dart';
 import 'package:double_dating_front/shared/styles/themes.dart';
 import 'package:double_dating_front/shared/widgets/custom_button.dart';
@@ -87,9 +86,10 @@ class _SignUpState extends State<SignUp> {
                 ),
                 CustomButton(height: 60, width: width*0.5, onTap: (){}, content: "Continue",),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 40.0, right: 17.0),
+                      padding: const EdgeInsets.only(right: 17.0),
                       child: Text(
                         "You already have an account?",
                         style: poppins.copyWith(

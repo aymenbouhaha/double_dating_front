@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:double_dating_front/screens/conversations_screen/widgets/profile_indicator.dart';
 import 'package:flutter/material.dart';
 
@@ -5,12 +7,13 @@ import '../../../shared/styles/colors.dart';
 import '../../../shared/styles/themes.dart';
 
 class ConversationItem extends StatefulWidget {
-  ConversationItem({Key? key , required this.username,required this.onTap, required this.lastMessage, required this.date , required this.notReadMessages}) : super(key: key);
+  ConversationItem({Key? key , required this.username,this.imageData,required this.onTap, required this.lastMessage, required this.date , required this.notReadMessages}) : super(key: key);
 
   int notReadMessages;
   String username;
   String lastMessage;
   DateTime date;
+  Uint8List? imageData;
   void Function() onTap;
 
   @override
@@ -34,21 +37,22 @@ class _ConversationItemState extends State<ConversationItem> {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            ProfileIndicator(containerHeigth: width*0.24, containerWidth: width*0.24),
+            ProfileIndicator(imageData: widget.imageData,containerHeigth: width*0.24, containerWidth: width*0.24),
             Container(
               width: width*0.6,
               height: width10*7,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(widget.username , style: AppThemes.textStyle.copyWith(fontSize: width10*2 , color: itemsColor),),
-                      Text("${widget.date.hour}:${widget.date.minute}" , style: AppThemes.textStyle.copyWith(fontSize: width10*1.4, fontWeight: FontWeight.w400 , color: itemsColor),)
+                      Text("${widget.date.hour>=10?widget.date.hour : "0${widget.date.hour}"}:${widget.date.minute>=10?widget.date.minute : "0${widget.date.minute}"}" , style: AppThemes.textStyle.copyWith(fontSize: width10*1.4, fontWeight: FontWeight.w400 , color: itemsColor),)
                     ],
                   ),
-                  Text(widget.lastMessage, style: AppThemes.textStyle.copyWith(fontSize: width10*1.5 , fontWeight:FontWeight.w400 ,color: itemsColor), overflow: TextOverflow.ellipsis,)
+                  Container(child: Text(widget.lastMessage, style: AppThemes.textStyle.copyWith(fontSize: width10*1.5 , fontWeight:FontWeight.w400 ,color: itemsColor), overflow: TextOverflow.ellipsis,))
                 ],
               ),
             ),
