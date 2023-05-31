@@ -1,5 +1,6 @@
 import 'package:double_dating_front/bloc/%20connected_user/connected_user_cubit.dart';
 import 'package:double_dating_front/bloc/authentication/sign_in_cubit.dart';
+import 'package:double_dating_front/bloc/authentication/sign_up_cubit.dart';
 import 'package:double_dating_front/bloc/conversation/conversation_cubit.dart';
 import 'package:double_dating_front/bloc/conversation_list/list_conversation_cubit.dart';
 import 'package:double_dating_front/screens/categories_screen/categories_screen.dart';
@@ -43,14 +44,14 @@ class MyApp extends StatelessWidget {
           BlocProvider<ListConversationCubit>(create: (context)=>ListConversationCubit()..onMessage()..getConversations()),
           BlocProvider<ConversationCubit>(create: (context)=>ConversationCubit()..onMessage(connectedUserId: 5)),
           BlocProvider<ConnectedUserCubit>(create: (context)=>ConnectedUserCubit()..onUserDisconnect()..onUserConnect()..onConnect()),
-
+          BlocProvider<SignUpCubit>(create: (context)=>SignUpCubit())
       ],
       child: MaterialApp(
         title: 'Double_Dating_App',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: SearchScreen(),
+        home: SignUp(),
       ),
     );
   }
