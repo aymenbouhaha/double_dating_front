@@ -5,9 +5,6 @@ class Websocket {
 
   IO.Socket? socket;
 
-
-
-
   connect(){
     this.socket!.connect();
   }

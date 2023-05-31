@@ -15,7 +15,6 @@ class SignInCubit extends Cubit<SignInState> {
 
   login(String email, String password) async {
     emit(SignInLoadingState());
-    print("Haha");
     http.Response response = await HttpHelper.postData(
       url: "/couple/login",
       data: {"login": email, "password": password},

@@ -1,4 +1,5 @@
 import 'package:double_dating_front/screens/partner_info_screen/partner_info_screen.dart';
+import 'package:double_dating_front/screens/sign_in_screen/sing_in_screen.dart';
 import 'package:double_dating_front/screens/sign_up_screen/widgets/custom_text_field.dart';
 import 'package:double_dating_front/screens/sign_up_screen/widgets/poppinstyle.dart';
 import 'package:double_dating_front/shared/styles/colors.dart';
@@ -114,7 +115,11 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                     InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(builder: (context)=>SignInScreen())
+                          );
+                        },
                         child: Text(
                           "login !",
                           style: poppins.copyWith(

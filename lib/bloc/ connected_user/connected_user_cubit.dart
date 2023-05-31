@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
+import 'package:double_dating_front/shared/network/local/cache_helper.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../models/couple.dart';
-import '../../shared/constants/constants.dart';
 import '../../shared/services/websocket.dart';
 
 part 'connected_user_state.dart';
@@ -13,14 +13,16 @@ part 'connected_user_state.dart';
 class ConnectedUserCubit extends Cubit<ConnectedUserState> {
 
 
-  ConnectedUserCubit() : super(ConnectedUsersInitialState());
+  ConnectedUserCubit() : super(ConnectedUserLoadedState(connectedCouples: []));
 
 
   onConnect() {
+    String token=CacheHelper.getData(key: "token");
     Websocket websocket = Websocket(token: token);
     websocket.connect();
     websocket.listenToEvent("connectedUsers",
             (message) {
+          print("From OnConnect");
           emit(ConnectedUserLoadingState());
           List<Couple> connectedUsers = coupleListFromJson(jsonEncode(message));
           connectedUsers.removeWhere((element) => element.id == 5);
@@ -30,6 +32,7 @@ class ConnectedUserCubit extends Cubit<ConnectedUserState> {
   }
 
   onUserDisconnect() {
+    String token=CacheHelper.getData(key: "token");
     Websocket websocket = Websocket(token: token);
     websocket.connect();
     websocket.listenToEvent("userDisconnected",
@@ -45,6 +48,7 @@ class ConnectedUserCubit extends Cubit<ConnectedUserState> {
   }
 
   onUserConnect() {
+    String token=CacheHelper.getData(key: "token");
     Websocket websocket = Websocket(token: token);
     websocket.connect();
     websocket.listenToEvent("userConnected",

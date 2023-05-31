@@ -7,7 +7,7 @@ import '../../models/media.dart';
 import '../../models/message.dart';
 import 'package:http/http.dart' as http;
 
-import '../../shared/constants/constants.dart';
+import '../../shared/network/local/cache_helper.dart';
 import '../../shared/network/remote/http_helper.dart';
 import '../../shared/services/websocket.dart';
 part 'conversation_state.dart';
@@ -34,7 +34,7 @@ class ConversationCubit extends Cubit<ConversationState>{
 
   getMessages(int conversationId) async {
     emit(ConversationLoadingState());
-    // String token=CacheHelper.getData(key: "token");
+    String token=CacheHelper.getData(key: "token");
     http.Response response=await HttpHelper.getData(url: "/message/${conversationId}",token: "Bearer ${token}");
     var resp=jsonDecode(response.body);
     if(response.statusCode! <= 299 && response.statusCode! >= 200){
@@ -46,6 +46,7 @@ class ConversationCubit extends Cubit<ConversationState>{
   }
 
   addMessage({required String content,required int recepientId,List<Media>? attachements}) async {
+    String token=CacheHelper.getData(key: "token");
     http.Response response= await HttpHelper.postData(url: "/message/create", data: {
       "content": content,
       "recepientId" : jsonEncode(recepientId)
@@ -63,6 +64,7 @@ class ConversationCubit extends Cubit<ConversationState>{
   }
 
   onMessage({required int connectedUserId}){
+    String token=CacheHelper.getData(key: "token");
     Websocket websocket=Websocket(token: token);
     websocket.connect();
     websocket.listenToEvent("onMessage",

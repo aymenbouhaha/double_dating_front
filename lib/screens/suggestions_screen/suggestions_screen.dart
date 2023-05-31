@@ -21,7 +21,7 @@ class SuggestionsScreen extends StatefulWidget {
   List<int> followers = [12, 36, 96, 63, 45];
   List<int> dates = [6, 33, 8, 9, 20];
   List<Interest> interests = [
-    Interest(name: "Sex"),
+    // Interest(name: "Sex"),
     Interest(name: "Love"),
     Interest(name: "Camping"),
     Interest(name: "Feelings"),
@@ -29,7 +29,7 @@ class SuggestionsScreen extends StatefulWidget {
   ];
   List<String> interest=[
     "All",
-    "Sex",
+    // "Sex",
     "Love",
     "Camping",
     "Feelings",

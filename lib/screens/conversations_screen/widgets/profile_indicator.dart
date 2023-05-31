@@ -7,11 +7,12 @@ import 'package:flutter/material.dart';
 import '../../../shared/styles/colors.dart';
 
 class ProfileIndicator extends StatelessWidget {
-  ProfileIndicator({Key? key, required this.containerHeigth , this.imageData ,this.onTap, required this.containerWidth}) : super(key: key);
+  ProfileIndicator({Key? key, required this.containerHeigth ,required this.isConnected, this.imageData ,this.onTap, required this.containerWidth}) : super(key: key);
 
   double containerHeigth;
   double containerWidth;
   Uint8List? imageData;
+  bool isConnected;
   void Function()? onTap;
 
   @override
@@ -38,17 +39,19 @@ class ProfileIndicator extends StatelessWidget {
                 foregroundImage: foreground,
               ),
             ),
-            Positioned(
-              bottom: 15,
-              right: 10,
-              child: Container(
-                height: 15,
-                width: 15,
-                decoration: BoxDecoration(
-                    color: AppColors.green,
-                    shape: BoxShape.circle),
-              ),
-            )
+            if(this.isConnected)...[
+              Positioned(
+                bottom: 15,
+                right: 10,
+                child: Container(
+                  height: 15,
+                  width: 15,
+                  decoration: BoxDecoration(
+                      color: AppColors.green,
+                      shape: BoxShape.circle),
+                ),
+              )
+            ]
           ],
         ),
       ),

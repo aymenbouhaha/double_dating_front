@@ -1,6 +1,7 @@
 import 'package:double_dating_front/screens/conversations_screen/conversations_screen.dart';
 import 'package:double_dating_front/screens/notifications_screen/notifications_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import '../../models/post.dart';
 import '../../shared/styles/colors.dart';
 import '../../shared/styles/themes.dart';
@@ -74,8 +75,11 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.zero,
               icon: Icon(Icons.search,size: 30,),
               onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context)=>SearchScreen())
+                PersistentNavBarNavigator.pushNewScreen(
+                  context,
+                  screen: SearchScreen(),
+                  withNavBar: false, // OPTIONAL VALUE. True by default.
+                  pageTransitionAnimation: PageTransitionAnimation.cupertino,
                 );
               },
             ),
@@ -84,8 +88,11 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.zero,
                 icon: Icon(Icons.notifications_outlined, size: 30,),
                 onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context)=>NotificationsScreen())
+                  PersistentNavBarNavigator.pushNewScreen(
+                    context,
+                    screen: NotificationsScreen(),
+                    withNavBar: false, // OPTIONAL VALUE. True by default.
+                    pageTransitionAnimation: PageTransitionAnimation.cupertino,
                   );
                 },
               ),
@@ -93,8 +100,11 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.zero,
                 icon: Icon(Icons.message_outlined, size: 30,),
                 onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context)=>ListConversation())
+                  PersistentNavBarNavigator.pushNewScreen(
+                    context,
+                    screen: ListConversation(),
+                    withNavBar: false, // OPTIONAL VALUE. True by default.
+                    pageTransitionAnimation: PageTransitionAnimation.cupertino,
                   );
                 },
               ),

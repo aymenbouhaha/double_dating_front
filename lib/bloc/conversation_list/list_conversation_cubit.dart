@@ -4,7 +4,7 @@ import 'package:double_dating_front/models/message.dart';
 import 'package:equatable/equatable.dart';
 import 'package:http/http.dart' as http;
 import '../../models/conversation.dart';
-import '../../shared/constants/constants.dart';
+import '../../shared/network/local/cache_helper.dart';
 import '../../shared/network/remote/http_helper.dart';
 import '../../shared/services/websocket.dart';
 part 'list_conversation_state.dart';
@@ -15,7 +15,7 @@ class ListConversationCubit extends Cubit<ListConversationState>{
 
   getConversations()async{
       emit(ListConversationLoadingState());
-      // String token=CacheHelper.getData(key: "token");
+      String token=CacheHelper.getData(key: "token");
       http.Response response=await HttpHelper.getData(url: "/conversation",token: "Bearer ${token}");
       var resp=jsonDecode(response.body);
       if(response.statusCode! <= 299 && response.statusCode! >= 200){
@@ -35,7 +35,7 @@ class ListConversationCubit extends Cubit<ListConversationState>{
 
 
   onMessage(){
-    // String token=CacheHelper.getData(key: "token");
+    String token=CacheHelper.getData(key: "token");
     Websocket websocket=Websocket(token: token);
     websocket.connect();
     websocket.listenToEvent("onMessage",

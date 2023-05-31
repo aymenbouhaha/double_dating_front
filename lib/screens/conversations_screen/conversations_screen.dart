@@ -67,6 +67,7 @@ class _ListConversationState extends State<ListConversation> {
                             }
 
                             return ProfileIndicator(
+                              isConnected: true,
                               imageData: imageData,
                               containerHeigth: width10 * 9,
                               containerWidth: width10 * 9,

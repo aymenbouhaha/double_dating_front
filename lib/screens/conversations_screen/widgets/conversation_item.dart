@@ -37,7 +37,7 @@ class _ConversationItemState extends State<ConversationItem> {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            ProfileIndicator(imageData: widget.imageData,containerHeigth: width*0.24, containerWidth: width*0.24),
+            ProfileIndicator(isConnected: false,imageData: widget.imageData,containerHeigth: width*0.24, containerWidth: width*0.24),
             Container(
               width: width*0.6,
               height: width10*7,
