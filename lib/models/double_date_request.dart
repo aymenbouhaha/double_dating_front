@@ -26,8 +26,8 @@ class DoubleDateRequest {
     id: json["id"],
     place: json["place"],
     date: json["date"],
-    sender : coupleFromJson(json["sender"]),
-    recipient: coupleFromJson(json["recipient"])
+    sender : json["sender"]!=null ? coupleFromJson(jsonEncode(json["sender"])) : null,
+    recipient: json["recipient"]!=null ? coupleFromJson(jsonEncode(json["recipient"])) : null
   );
 
 }

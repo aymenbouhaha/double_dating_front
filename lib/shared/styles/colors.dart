@@ -24,10 +24,14 @@ class AppColors {
       begin: Alignment.centerLeft,
       end: Alignment.centerRight);
 
+  static Color interestColor= Color(0xFFB783EB);
+
   static Gradient borderGradientColor = LinearGradient(
       colors: [AppColors.roseClair, AppColors.mauveFonce],
       begin: Alignment.centerLeft,
       end: Alignment.centerRight);
+  
+  static Color postBackground = Color(0x4D230F4E);
 
   static BoxBorder borderGradient = GradientBoxBorder(
 

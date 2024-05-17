@@ -1,6 +1,7 @@
+import 'package:double_dating_front/screens/partner_info_screen/partner_info_screen.dart';
+import 'package:double_dating_front/screens/sign_in_screen/sing_in_screen.dart';
 import 'package:double_dating_front/screens/sign_up_screen/widgets/custom_text_field.dart';
 import 'package:double_dating_front/screens/sign_up_screen/widgets/poppinstyle.dart';
-import 'package:double_dating_front/screens/sign_up_screen/widgets/test.dart';
 import 'package:double_dating_front/shared/styles/colors.dart';
 import 'package:double_dating_front/shared/styles/themes.dart';
 import 'package:double_dating_front/shared/widgets/custom_button.dart';
@@ -51,7 +52,11 @@ class _SignUpState extends State<SignUp> {
           body: SingleChildScrollView(
             child: Column(
               children: [
-                SvgPicture.asset("assets/sign-up-bubble.svg" , height: 150, width: 150,),
+                SvgPicture.asset(
+                  "assets/sign-up-bubble.svg",
+                  height: 150,
+                  width: 150,
+                ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 23),
                   child: Text("Couple informations",
@@ -80,16 +85,29 @@ class _SignUpState extends State<SignUp> {
                     obscureText: true,
                     icon: Icons.visibility_outlined),
                 DateField(
-                    onTap: ()=>{
-                      _ShowDatePicker()
-                },
-                    content: _datepickedString
+                    onTap: () => {_ShowDatePicker()},
+                    content: _datepickedString),
+                CustomButton(
+                  height: 60,
+                  width: width * 0.5,
+                  onTap: () {
+                      dynamic coupleInfos={
+                        "username": usernameController.value.text,
+                        "email": emailController.value.text,
+                        "password":emailController.value.text,
+                        "anniversary": _datepicked!.toUtc().toIso8601String()
+                      };
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context)=>PartnerInfo(pageNumber: 1,coupleInofs: coupleInfos))
+                      );
+                  },
+                  content: "Continue",
                 ),
-                CustomButton(height: 60, width: width*0.5, onTap: (){}, content: "Continue",),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 40.0, right: 17.0),
+                      padding: const EdgeInsets.only(right: 17.0),
                       child: Text(
                         "You already have an account?",
                         style: poppins.copyWith(
@@ -97,7 +115,11 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                     InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(builder: (context)=>SignInScreen())
+                          );
+                        },
                         child: Text(
                           "login !",
                           style: poppins.copyWith(

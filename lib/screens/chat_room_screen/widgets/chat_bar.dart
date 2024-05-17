@@ -35,7 +35,7 @@ class ChatBar extends StatelessWidget {
                     child: InkWell(
                       onTap: () {},
                       child: SvgPicture.asset(
-                        "assets/ icons/Image.svg",
+                        "assets/icons/Image.svg",
                         height: 40,
                         width: 40,
                       ),

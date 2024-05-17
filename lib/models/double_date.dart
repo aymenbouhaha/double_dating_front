@@ -28,8 +28,8 @@ class DoubleDate {
     id: json["id"],
     place: json["place"],
     date: json["date"],
-    firstCouple: coupleFromJson(json["firstCouple"]),
-    secondCouple: coupleFromJson(json["secondCouple"])
+    firstCouple: json["firstCouple"] !=null ? coupleFromJson(jsonEncode(json["firstCouple"])) : null,
+    secondCouple:  json["secondCouple"]!=null  ? coupleFromJson(jsonEncode(json["secondCouple"])) :null
   );
 
 

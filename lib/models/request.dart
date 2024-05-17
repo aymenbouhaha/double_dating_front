@@ -22,8 +22,8 @@ class Request {
   factory Request.fromJson(Map<String, dynamic> json) => Request(
     id: json["id"],
     status: json["status"],
-      sender : coupleFromJson(json["sender"]),
-      reciever: coupleFromJson(json["reciever"])
+      sender : json["sender"] !=null ? coupleFromJson(jsonEncode(json["sender"])) : null,
+      reciever:json["reciever"] !=null? coupleFromJson(jsonEncode(json["reciever"])) : null
   );
 
   Map<String, dynamic> toJson() => {

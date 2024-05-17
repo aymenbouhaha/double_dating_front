@@ -1,18 +1,30 @@
 
 
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 
 import '../../../shared/styles/colors.dart';
 
 class ProfileIndicator extends StatelessWidget {
-  ProfileIndicator({Key? key, required this.containerHeigth ,this.onTap, required this.containerWidth}) : super(key: key);
+  ProfileIndicator({Key? key, required this.containerHeigth ,required this.isConnected, this.imageData ,this.onTap, required this.containerWidth}) : super(key: key);
 
   double containerHeigth;
   double containerWidth;
+  Uint8List? imageData;
+  bool isConnected;
   void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
+    ImageProvider foreground;
+
+    if(imageData !=null){
+      foreground=MemoryImage(imageData!);
+    }else{
+      foreground=AssetImage("assets/Group 68.png");
+    }
+
     return InkWell(
       onTap: onTap,
       child: Container(
@@ -22,19 +34,24 @@ class ProfileIndicator extends StatelessWidget {
           children: [
             Align(
               alignment: Alignment.center,
-              child: Image.asset("assets/Group 68.png"),
-            ),
-            Positioned(
-              bottom: 15,
-              right: 10,
-              child: Container(
-                height: 15,
-                width: 15,
-                decoration: BoxDecoration(
-                    color: AppColors.green,
-                    shape: BoxShape.circle),
+              child: CircleAvatar(
+                radius: 35,
+                foregroundImage: foreground,
               ),
-            )
+            ),
+            if(this.isConnected)...[
+              Positioned(
+                bottom: 15,
+                right: 10,
+                child: Container(
+                  height: 15,
+                  width: 15,
+                  decoration: BoxDecoration(
+                      color: AppColors.green,
+                      shape: BoxShape.circle),
+                ),
+              )
+            ]
           ],
         ),
       ),

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'media.dart';
 import 'person.dart';
 
 import 'interest.dart';
@@ -16,6 +17,7 @@ class Couple {
   Person? firstPartner;
   Person? secondPartner;
   List<Interest>? interest;
+  Media? profilePicture;
 
   Couple({
      this.id,
@@ -24,18 +26,24 @@ class Couple {
      this.anniversary,
     this.firstPartner,
     this.interest,
-    this.secondPartner
+    this.secondPartner,
+    this.profilePicture
   });
 
-  factory Couple.fromJson(Map<String, dynamic> json) => Couple(
-    id: json["id"],
-    username: json["username"],
-    email: json["email"],
-    anniversary: json["anniversary"],
-    firstPartner: personFromJson(json["firstPartner"]),
-    secondPartner: personFromJson(json["secondPartner"]),
-    interest: interestListFromJson(json["interest"])
-  );
+  factory Couple.fromJson(Map<String, dynamic> json){
+
+    return Couple(
+        id: json["id"] ?? null,
+        username: json["username"]  ,
+        email: json["email"] ,
+        profilePicture: json["profilePicture"]!=null?  mediaFromJson(jsonEncode(json["profilePicture"])): null ,
+        anniversary: json["anniversary"] !=null ? DateTime.tryParse(json["anniversary"]) : null,
+        firstPartner: json["firstPartner"] !=null ? personFromJson(jsonEncode(json["firstPartner"])) : null,
+        secondPartner: json["secondPartner"] !=null ? personFromJson(jsonEncode(json["secondPartner"])) : null,
+        interest: json["interest"]!=null  ? interestListFromJson(jsonEncode(json["interest"])) : null
+    );
+
+  }
 
 
 }

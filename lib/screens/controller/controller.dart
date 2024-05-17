@@ -1,3 +1,4 @@
+import 'package:double_dating_front/screens/home_page_screen/home_page_screen.dart';
 import 'package:double_dating_front/screens/suggestions_screen/suggestions_screen.dart';
 import 'package:double_dating_front/shared/styles/colors.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class _ControllerState extends State<Controller> {
   Widget build(BuildContext context) {
     List<Widget> _buildScreens() {
       return [
-        Screen1(),
+        HomePage(),
         SuggestionsScreen(),
         Screen3(),
         Screen4(),
